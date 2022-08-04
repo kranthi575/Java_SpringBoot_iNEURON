@@ -12,6 +12,20 @@ class Player{
 		
 		guessNum=sc.nextInt();
 		
+		int chances=3;
+		while(chances!=0) {
+		if(guessNum>9 || guessNum<1) {
+			System.out.println("Player"+num+",please guess the number between 1 to 9:(you have only "+chances+" chances remaining)");
+			guessNum=sc.nextInt();
+			chances--;
+			if(chances==0)
+				System.out.println("Player"+num+" is OUT of the game'-'");
+		}
+		
+		else 
+			break;
+		
+		}
 		return guessNum;
 	}	
 }
@@ -27,6 +41,13 @@ class Guesser{
 		
 		guessNum=sc.nextInt();
 		
+		while(guessNum>9||guessNum<1) {
+			
+			System.out.println("Guesser, please guess the number with in 1 to 9:");
+			
+			guessNum=sc.nextInt();
+			
+		}
 		return guessNum;
 		
 	}	
@@ -79,11 +100,11 @@ class Umpire{
 			  j++;
 		  }
 	  }
-	  if(winners[0]==0) {
+	  if(j==0) {
 		  System.out.println("Sorry! No one has won the game :( \nPlease play again :)");
 		  
 	  }
-	  else if(winners.length==1) {
+	  else if(j==1) {
 		  
 		  System.out.println("Winner of the Game is:\nPlayer"+winners[0]);
 		  
